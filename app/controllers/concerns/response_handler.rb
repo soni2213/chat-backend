@@ -4,10 +4,11 @@
 module ResponseHandler
   extend ActiveSupport::Concern
 
-  def render_success(resource: nil, message: '', status: 200)
+  def render_success(resource: nil, message: '', status: 200, meta: {})
     render json: {
       resource: resource,
-      message: message
+      message: message,
+      meta: meta
     }, status: status
   end
 

@@ -13,7 +13,8 @@ module Api
       messages = @channel.chat_messages.order(id: :desc).page(params[:page])
       render_success(
         resource: messages.as_json(only: %i[id text channel_id user_id]),
-        message: 'successful'
+        message: 'successful',
+        meta: { total_count: messages.total_count, total_pages: messages.total_pages }
       )
     end
 
