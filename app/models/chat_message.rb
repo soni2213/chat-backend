@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ChatMessage < ApplicationRecord
   PER_PAGE = 1
   belongs_to :channel

@@ -5,10 +5,12 @@ module ExceptionHandler
   extend ActiveSupport::Concern
 
   included do
+    # unless Rails.env.development? || Rails.env.test?
     rescue_from StandardError, with: :all_standard_error
     rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
     rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
     rescue_from ActiveRecord::RecordNotUnique, with: :record_not_unique
+    # end
   end
 
   def record_not_found(_exception)
