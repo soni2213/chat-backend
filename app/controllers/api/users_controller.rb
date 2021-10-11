@@ -1,14 +1,17 @@
-class Api::UsersController < Api::BaseController
+# frozen_string_literal: true
 
-  before_action :find_user, only: %w[show]
+module Api
+  class UsersController < Api::BaseController
+    before_action :find_user, only: %w[show]
 
-  def show
-    render_success(resource: @user, message: 'successful')
-  end
+    def show
+      render_success(resource: @user, message: 'successful')
+    end
 
-  private
+    private
 
-  def find_user
-    @user = User.find(params[:id])
+    def find_user
+      @user = User.find(params[:id])
+    end
   end
 end
