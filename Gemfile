@@ -25,4 +25,5 @@ end
 group :test do
   gem 'faker'
   gem 'shoulda-matchers', '~> 4.0'
+  gem 'database_cleaner-active_record'
 end

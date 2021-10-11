@@ -1,7 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
   def create
     build_resource(sign_up_params)
-    resource.save
+    resource.save!
     sign_up(resource_name, resource) if resource.persisted?
     render json: resource
   end

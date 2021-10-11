@@ -39,9 +39,8 @@ describe RegistrationsController, type: :request do
       }
     end
 
-    it 'returns 400' do
-      binding.pry
-      expect(response.status).to eq(400)
+    it 'returns 422' do
+      expect(response.status).to eq(422)
     end
   end
 end
