@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 describe Api::UsersController, type: :request do
-  let(:user) { create_user }
+  let(:user) { create(:user) }
 
   context 'When fetching a user' do
     before do
