@@ -10,7 +10,7 @@ module Api
     end
 
     def index
-      messages = @channel.chat_messages.order(id: :desc)
+      messages = @channel.chat_messages.order(id: :desc).page(params[:page])
       render_success(
         resource: messages.as_json(only: %i[id text channel_id user_id]),
         message: 'successful'

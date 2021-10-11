@@ -1,4 +1,5 @@
 class ChatMessage < ApplicationRecord
+  PER_PAGE = 1
   belongs_to :channel
   belongs_to :user
 

@@ -5,7 +5,10 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
 gem 'devise-jwt'
 gem 'dotenv-rails'
+
+gem 'kaminari'
 gem 'pg', '>= 0.18', '< 2.0'
+
 gem 'puma'
 gem 'rack-cors'
 gem 'rails'

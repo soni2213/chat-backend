@@ -8,7 +8,7 @@ module Api
         channels = channels.joins(:channel_users).where('channel_users.user_id = ?', current_user.id).distinct
       end
       render_success(
-        resource: channels.as_json(only: %i[id name]),
+        resource: channels.page(params[:page]).as_json(only: %i[id name]),
         message: 'successful'
       )
     end
