@@ -1,24 +1,43 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the backend repo for chat system.
 
-Things you may want to cover:
+Configuration:
 
-* Ruby version
+Ruby: 3.0.1
+Rails: 6.1.4
 
-* System dependencies
 
-* Configuration
+Clone the repo, and run the below commands to get started.
 
-* Database creation
+0. `bundle install`
+1. `bundle exec rails db:create db:migrate`
+2. `bundle exec rails s`
 
-* Database initialization
+Channel creation and channel joining APIs are not exposed, and need to be done manually via
+rails console for the time being.
+Please use the below commands for the same:
 
-* How to run the test suite
+Open rails console by typing `bundle exec rails c`
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+  4.times { Channel.create!(name: SecureRandom.hex(4)) }
+```
 
-* Deployment instructions
+To join a channel:
 
-* ...
+```
+  user = User.first
+  channel = Channel.first
+  ChannelUser.create!(channel: channel, user: user)
+```
+
+## Postman collection
+You can find the postman collection [here](https://www.getpostman.com/collections/cba257e597e41a640cde).
+Please ensure you have `url` as `http://localhost:3000` set in your environment.
+
+## Testing
+I've used `rspec` for testing part, covering all endpoints.
+
+To run the specs:
+`bundle exec rspec`
